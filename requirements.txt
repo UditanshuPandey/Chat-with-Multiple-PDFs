@@ -14,3 +14,4 @@ tiktoken==0.4.0
 transformers
 sentence-transformers==2.2.2
 InstructorEmbedding
+ollama
