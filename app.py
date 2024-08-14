@@ -108,6 +108,7 @@ from htmlTemplates import css, bot_template, user_template
 from langchain_groq import ChatGroq
 # from langchain.llms import HuggingFaceHub
 import os
+import ollama
 
 # Function to initialize conversation chain with GROQ language model
 groq_api_key = os.environ['GROQ_API_KEY']
