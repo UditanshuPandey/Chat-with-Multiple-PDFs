@@ -39,7 +39,7 @@ def get_text_chunks(text):
     return text_splitter.split_text(text)
 
 def get_vectorstore(text_chunks):
-    embeddings = HuggingFaceInstructEmbeddings(model='sentence-transformers/all-MiniLM-L6-v2')
+    embeddings = HuggingFaceInstructEmbeddings(model="hkunlp/instructor-large")
     return FAISS.from_texts(texts=text_chunks, embedding=embeddings)
 
 def get_conversation_chain(vectorstore):
