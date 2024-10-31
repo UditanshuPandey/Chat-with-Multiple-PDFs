@@ -8,6 +8,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 from langchain_groq import ChatGroq
+from sentence_transformers import SentenceTransformer
 import os
 
 # Initialize GROQ chat model
@@ -39,7 +40,7 @@ def get_text_chunks(text):
     return text_splitter.split_text(text)
 
 def get_vectorstore(text_chunks):
-    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+    embeddings = SentenceTransformer("hkunlp/instructor-xl")
     return FAISS.from_texts(texts=text_chunks, embedding=embeddings)
 
 def get_conversation_chain(vectorstore):
